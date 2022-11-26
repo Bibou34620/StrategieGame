@@ -10,7 +10,7 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("PyStrat")
 
-piocher1 = random.randint(1, 10)
+piocher1 = 1
 piocher2 = random.randint(1, 10)
 piocher3 = random.randint(1, 10)
 piocher4 = random.randint(1, 10)
@@ -28,11 +28,11 @@ running = True
 while running:
 
     if piocher1 == 1:
-        screen.blit(fc.card1, (100, 100))
+        screen.blit(fc.card1, (fc.x1, fc.y1))
     if piocher1 == 2:
-        screen.blit(fc.card2, (100, 100))
+        screen.blit(fc.card2, (fc.x2, fc.y2))
     if piocher1 == 3:
-        screen.blit(fc.card3, (100, 100))
+        screen.blit(fc.card3, (fc.x3, fc.y3))
     if piocher1 == 4:
         screen.blit(fc.card4, (100, 100))
     if piocher1 == 5:
@@ -131,6 +131,12 @@ while running:
         screen.blit(fic.card9, (700, 100))
     if piocher5 == 10:
         screen.blit(fic.card10, (700, 100))
+
+    mouse = pygame.mouse.get_pos()
+
+    if piocher1 == 1:
+	    if fc.rect1.collidepoint(mouse):
+	       print("hi !")
 
     pygame.display.flip()
     for event in pygame.event.get():
