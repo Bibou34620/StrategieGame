@@ -10,7 +10,7 @@ pygame.init()
 screen = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption("PyStrat")
 
-piocher1 = 1
+piocher1 = random.randint(1, 10)
 piocher2 = random.randint(1, 10)
 piocher3 = random.randint(1, 10)
 piocher4 = random.randint(1, 10)
@@ -36,7 +36,7 @@ running = True
 while running:
 
     # a garder sinon une autre carte en + apparaît
-    screen.fill((0, 0, 0))
+    screen.fill((0, 204, 102))
 
     def piocheFirstCard():
         if piocher1 == 1:
@@ -261,111 +261,111 @@ while running:
     def checkIfMouseOnCard1():
         if fc.rect1.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect2.collidepoint(mouse):
+        if fc.rect2.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect3.collidepoint(mouse):
+        if fc.rect3.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect4.collidepoint(mouse):
+        if fc.rect4.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect5.collidepoint(mouse):
+        if fc.rect5.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect6.collidepoint(mouse):
+        if fc.rect6.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect7.collidepoint(mouse):
+        if fc.rect7.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect8.collidepoint(mouse):
+        if fc.rect8.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect9.collidepoint(mouse):
+        if fc.rect9.collidepoint(mouse) and mouse_pressed:
                print("hi")
-        if fc.rect10.collidepoint(mouse):
+        if fc.rect10.collidepoint(mouse) and mouse_pressed:
                print("hi")
 
     def checkIfMouseOnCard2():
-        if sc.rect1.collidepoint(mouse):
+        if sc.rect1.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect2.collidepoint(mouse):
+        if sc.rect2.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect3.collidepoint(mouse):
+        if sc.rect3.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect4.collidepoint(mouse):
+        if sc.rect4.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect5.collidepoint(mouse):
+        if sc.rect5.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect6.collidepoint(mouse):
+        if sc.rect6.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect7.collidepoint(mouse):
+        if sc.rect7.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect8.collidepoint(mouse):
+        if sc.rect8.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect9.collidepoint(mouse):
+        if sc.rect9.collidepoint(mouse) and mouse_pressed:
                print("ok2")
-        if sc.rect10.collidepoint(mouse):
+        if sc.rect10.collidepoint(mouse) and mouse_pressed:
                print("ok2")
 
     def checkIfMouseOnCard3():
-        if tc.rect1.collidepoint(mouse):
+        if tc.rect1.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect2.collidepoint(mouse):
+        if tc.rect2.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect3.collidepoint(mouse):
+        if tc.rect3.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect4.collidepoint(mouse):
+        if tc.rect4.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect5.collidepoint(mouse):
+        if tc.rect5.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect6.collidepoint(mouse):
+        if tc.rect6.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect7.collidepoint(mouse):
+        if tc.rect7.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect8.collidepoint(mouse):
+        if tc.rect8.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect9.collidepoint(mouse):
+        if tc.rect9.collidepoint(mouse) and mouse_pressed:
                print("ok3")
-        if tc.rect10.collidepoint(mouse):
+        if tc.rect10.collidepoint(mouse) and mouse_pressed:
                print("ok3")
 
     def checkIfMouseOnCard4():
-        if foc.rect1.collidepoint(mouse):
+        if foc.rect1.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect2.collidepoint(mouse):
+        if foc.rect2.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect3.collidepoint(mouse):
+        if foc.rect3.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect4.collidepoint(mouse):
+        if foc.rect4.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect5.collidepoint(mouse):
+        if foc.rect5.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect6.collidepoint(mouse):
+        if foc.rect6.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect7.collidepoint(mouse):
+        if foc.rect7.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect8.collidepoint(mouse):
+        if foc.rect8.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect9.collidepoint(mouse):
+        if foc.rect9.collidepoint(mouse) and mouse_pressed:
                print("ok4")
-        if foc.rect10.collidepoint(mouse):
+        if foc.rect10.collidepoint(mouse) and mouse_pressed:
                print("ok4")
 
     def checkIfMouseOnCard5():
-        if fic.rect1.collidepoint(mouse):
+        if fic.rect1.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect2.collidepoint(mouse):
+        if fic.rect2.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect3.collidepoint(mouse):
+        if fic.rect3.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect4.collidepoint(mouse):
+        if fic.rect4.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect5.collidepoint(mouse):
+        if fic.rect5.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect6.collidepoint(mouse):
+        if fic.rect6.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect7.collidepoint(mouse):
+        if fic.rect7.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect8.collidepoint(mouse):
+        if fic.rect8.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect9.collidepoint(mouse):
+        if fic.rect9.collidepoint(mouse) and mouse_pressed:
                print("ok5")
-        if fic.rect10.collidepoint(mouse):
+        if fic.rect10.collidepoint(mouse) and mouse_pressed:
                print("ok5")
     
     checkIfMouseOnCard1()
