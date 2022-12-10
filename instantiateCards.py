@@ -1,4 +1,5 @@
 from Card import Card
+from BotCard import BotCard
 from options import Options
 
 # instanciation des classes
@@ -8,8 +9,8 @@ sc = Card()
 tc = Card()
 foc = Card()
 fic = Card()
-fbc = Card()
-sbc = Card()
-tbc = Card()
-fobc = Card()
-fibc = Card()
+fbc = BotCard()
+sbc = BotCard()
+tbc = BotCard()
+fobc = BotCard()
+fibc = BotCard()

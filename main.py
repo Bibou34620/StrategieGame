@@ -1,5 +1,6 @@
 import pygame
 from Card import Card
+from BotCard import BotCard
 from options import Options
 from instantiateCards import *
 from cardPositions import *
@@ -18,6 +19,7 @@ while running:
     # a garder sinon une autre carte en + apparaît
     op.screen.fill((0, 204, 102))
 
+    #piocher toutes les cartes du joueur
     def piocheFirstCard():
         op.screen.blit(fc.card, (fc.x, fc.y))
     def piocheSecondCard():
@@ -30,6 +32,18 @@ while running:
         op.screen.blit(fic.card,(fic.x, fic.y))
             
 
+    #piocher toutes les cartes du bot
+    def piocheFirstBotCard():
+        op.screen.blit(fbc.card, (fbc.x, fbc.y))
+    def piocheSecondBotCard():
+        op.screen.blit(sbc.card, (sbc.x, sbc.y))
+    def piocheThirdBotCard():
+        op.screen.blit(tbc.card, (tbc.x, tbc.y))
+    def piocheFourthBotCard():
+        op.screen.blit(fobc.card, (fobc.x, fobc.y))
+    def piocheFifthBotCard():
+        op.screen.blit(fibc.card,(fibc.x, fibc.y))
+
     def piocheAllPlayerCards():
         piocheFirstCard()
         piocheSecondCard()
@@ -37,7 +51,17 @@ while running:
         piocheFourthCard()
         piocheFifthCard()
 
+    def piocheAllBotCards():
+        piocheFirstBotCard()
+        piocheSecondBotCard()
+        piocheThirdBotCard()
+        piocheFourthBotCard()
+        piocheFifthBotCard()
+
+
+    piocheAllBotCards()
     piocheAllPlayerCards()
+
 
     mouse = pygame.mouse.get_pos()
 
