@@ -11,7 +11,14 @@ class BotCard(pygame.sprite.Sprite):
 
 		self.card = pygame.image.load(str('cards/card' + piocher_to_str + '.png'))
 
+		self.hidedCard = pygame.image.load('cards/card_hided.png')
+
+		self.hidedCard = pygame.transform.scale(self.hidedCard, (90, 130))
+
 		self.card = pygame.transform.scale(self.card, (90, 130))
+
+	
+		self.image = self.hidedCard
 
 		self.rect = self.card.get_rect()
 

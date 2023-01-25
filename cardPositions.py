@@ -10,12 +10,24 @@ def definePositions():
 	foc.x = 550
 	fic.x = 700
 
+	fc.rect.x = fc.x
+	sc.rect.x = sc.x
+	tc.rect.x = tc.x
+	foc.rect.x = foc.x
+	fic.rect.x = fic.x
+
 	#Cartes joueur y
-	fc.y = 100
-	sc.y = 100
-	tc.y = 100
-	foc.y = 100
-	fic.y = 100
+	fc.y = 495
+	sc.y = 495
+	tc.y = 495
+	foc.y = 495
+	fic.y = 495
+
+	fc.rect.y = fc.y
+	sc.rect.y = sc.y
+	tc.rect.y = tc.y
+	foc.rect.y = foc.y
+	fic.rect.y = fic.y
 
 	#Cartes bot x
 	fbc.x = 100
@@ -25,8 +37,8 @@ def definePositions():
 	fibc.x = 700
 
 	#Cartes bot y
-	fbc.y = 300
-	sbc.y = 300
-	tbc.y = 300
-	fobc.y = 300
-	fibc.y = 300
+	fbc.y = -15
+	sbc.y = -15
+	tbc.y = -15
+	fobc.y = -15
+	fibc.y = -15

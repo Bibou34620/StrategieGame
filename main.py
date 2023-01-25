@@ -4,12 +4,13 @@ from BotCard import BotCard
 from options import Options
 from instantiateCards import *
 from cardPositions import *
+from hideBotCards import *
 
 pygame.init()
 
 mouse_pressed = False
-
 running = True
+isPlayer_turn = False
 
 definePositions()
 
@@ -34,15 +35,15 @@ while running:
 
     #piocher toutes les cartes du bot
     def piocheFirstBotCard():
-        op.screen.blit(fbc.card, (fbc.x, fbc.y))
+        op.screen.blit(fbc.image, (fbc.x, fbc.y))
     def piocheSecondBotCard():
-        op.screen.blit(sbc.card, (sbc.x, sbc.y))
+        op.screen.blit(sbc.image, (sbc.x, sbc.y))
     def piocheThirdBotCard():
-        op.screen.blit(tbc.card, (tbc.x, tbc.y))
+        op.screen.blit(tbc.image, (tbc.x, tbc.y))
     def piocheFourthBotCard():
-        op.screen.blit(fobc.card, (fobc.x, fobc.y))
+        op.screen.blit(fobc.image, (fobc.x, fobc.y))
     def piocheFifthBotCard():
-        op.screen.blit(fibc.card,(fibc.x, fibc.y))
+        op.screen.blit(fibc.image,(fibc.x, fibc.y))
 
     def piocheAllPlayerCards():
         piocheFirstCard()
@@ -61,13 +62,15 @@ while running:
 
     piocheAllBotCards()
     piocheAllPlayerCards()
+    hideBotCards()
 
 
     mouse = pygame.mouse.get_pos()
 
     def checkIfMouseOnCard1():
         if fc.rect.collidepoint(mouse) and mouse_pressed:
-        	   print("ok1")
+               fc.x = 350
+               fc.y = 230
 
     def checkIfMouseOnCard2():
         if sc.rect.collidepoint(mouse) and mouse_pressed:
