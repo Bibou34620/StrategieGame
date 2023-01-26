@@ -10,13 +10,14 @@ pygame.init()
 
 mouse_pressed = False
 running = True
+isPlayerTurn = True
+isBotTurn = False
 playerCardPlayed = 0
 botCardPlayed = 0
-fbc.piocher = 10
 
 definePositions()
 
-
+print(fbc.piocher, " ", sbc.piocher , " ", tbc.piocher, " ", fobc.piocher, " ", fibc.piocher)
 while running:
 
     # a garder sinon une autre carte en + apparaît
@@ -68,40 +69,69 @@ while running:
 
 
     mouse = pygame.mouse.get_pos()
-    isPlayerTurn = True
 
 
-
-    if fc.rect.collidepoint(mouse) and mouse_pressed:
+    if fc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
             fc.x = 350
             fc.y = 230
             playerCardPlayed = fc.piocher
             isPlayerTurn = False
-            print(isPlayerTurn)
+            isBotTurn = True
                
-    def checkIfMouseOnCard2():
-        if sc.rect.collidepoint(mouse) and mouse_pressed:
-               print("ok2")
+    if sc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            sc.x = 350
+            sc.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+            isBotTurn = True
 
-    def checkIfMouseOnCard3():
-        if tc.rect.collidepoint(mouse) and mouse_pressed:
-            print("ok3")
-    def checkIfMouseOnCard4():
-        if foc.rect.collidepoint(mouse) and mouse_pressed:
-               print("ok4")
-    def checkIfMouseOnCard5():
-        if fic.rect.collidepoint(mouse) and mouse_pressed:
-               print("ok5")
-
-    checkIfMouseOnCard2()
-    checkIfMouseOnCard3()
-    checkIfMouseOnCard4()
-    checkIfMouseOnCard5()
+    if tc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            tc.x = 350
+            tc.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+            isBotTurn = True
+            
+    if foc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            foc.x = 350
+            tc.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+            isBotTurn = True
+            
+    if fic.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            fic.x = 350
+            fic.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+            isBotTurn = True
     
     #logique du bot pour essayer de gagner
-    if fbc.piocher > sbc.piocher and fbc.piocher > tbc.piocher and fbc.piocher > fobc.piocher and fbc.piocher > fibc.piocher and isPlayerTurn == False:
+    if fbc.piocher > 7 and isPlayerTurn == False and isBotTurn == True:
         fbc.x = 450
         fbc.y = 230
+        #mettre un sleep de 2 secondes et faire partir les cartes
+        
+    elif fbc.piocher < 7 and sbc.piocher > tbc.piocher and isPlayerTurn == False and isBotTurn == True:
+        sbc.x = 450
+        sbc.y = 230
+        #mettre un sleep de 2 secondes et faire partir les cartes
+        
+    elif sbc.piocher < tbc.piocher and sbc.piocher > tbc.piocher and isPlayerTurn == False and isBotTurn == True:
+        tbc.x = 450
+        tbc.y = 230
+        #mettre un sleep de 2 secondes et faire partir les cartes
+        
+    elif sbc.piocher < tbc.piocher and tbc.piocher > fobc.piocher and isPlayerTurn == False and isBotTurn == True:
+        fobc.x = 450
+        fobc.y = 230
+        #mettre un sleep de 2 secondes et faire partir les cartes
+        
+    elif tbc.piocher < fobc.piocher and fobc.piocher > fibc.piocher and isPlayerTurn == False and isBotTurn == True:
+        fibc.x = 450
+        fibc.y = 230
+        #mettre un sleep de 2 secondes et faire partir les cartes
+        
 
     pygame.display.flip()
     for event in pygame.event.get():

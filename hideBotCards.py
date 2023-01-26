@@ -7,8 +7,8 @@ def hideBotCards():
     else:
         fbc.image = fbc.card
 
-    if sbc.x == 250 and fbc.y == -15:
-        sbc.image = fbc.hidedCard
+    if sbc.x == 250 and sbc.y == -15:
+        sbc.image = sbc.hidedCard
     else:
         sbc.image = sbc.card 
 
