@@ -10,7 +10,9 @@ pygame.init()
 
 mouse_pressed = False
 running = True
-isPlayer_turn = False
+playerCardPlayed = 0
+botCardPlayed = 0
+fbc.piocher = 10
 
 definePositions()
 
@@ -66,12 +68,17 @@ while running:
 
 
     mouse = pygame.mouse.get_pos()
+    isPlayerTurn = True
 
-    def checkIfMouseOnCard1():
-        if fc.rect.collidepoint(mouse) and mouse_pressed:
-               fc.x = 350
-               fc.y = 230
 
+
+    if fc.rect.collidepoint(mouse) and mouse_pressed:
+            fc.x = 350
+            fc.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+            print(isPlayerTurn)
+               
     def checkIfMouseOnCard2():
         if sc.rect.collidepoint(mouse) and mouse_pressed:
                print("ok2")
@@ -86,11 +93,15 @@ while running:
         if fic.rect.collidepoint(mouse) and mouse_pressed:
                print("ok5")
 
-    checkIfMouseOnCard1()
     checkIfMouseOnCard2()
     checkIfMouseOnCard3()
     checkIfMouseOnCard4()
     checkIfMouseOnCard5()
+    
+    #logique du bot pour essayer de gagner
+    if fbc.piocher > sbc.piocher and fbc.piocher > tbc.piocher and fbc.piocher > fobc.piocher and fbc.piocher > fibc.piocher and isPlayerTurn == False:
+        fbc.x = 450
+        fbc.y = 230
 
     pygame.display.flip()
     for event in pygame.event.get():
