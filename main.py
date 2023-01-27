@@ -9,19 +9,36 @@ from hideBotCards import *
 pygame.init()
 
 mouse_pressed = False
+playerScore = 0
+botScore = 0
 running = True
-isPlayerTurn = True
-isBotTurn = False
+isPlayerTurn = False
+isBotTurn = True
 playerCardPlayed = 0
 botCardPlayed = 0
+textFont = pygame.font.SysFont("fonts/font.ttf", 40)
 
 definePositions()
 
 print(fbc.piocher, " ", sbc.piocher , " ", tbc.piocher, " ", fobc.piocher, " ", fibc.piocher)
 while running:
+    
+    playerScoreText = textFont.render(str(playerScore), True, (255,255,255))
+    playerScoreTextRect = playerScoreText.get_rect()
+
+    botScoreText = textFont.render(str(botScore), True, (255,255,255))
+    botScoreTextRect = botScoreText.get_rect()
+
+    playerScoreTextRect.x = 25
+    playerScoreTextRect.y = 560
+
+    botScoreTextRect.x = 950
+    botScoreTextRect.y = 10
 
     # a garder sinon une autre carte en + apparaît
     op.screen.fill((0, 204, 102))
+    op.screen.blit(playerScoreText, playerScoreTextRect)
+    op.screen.blit(botScoreText, botScoreTextRect)
 
     #piocher toutes les cartes du joueur
     def piocheFirstCard():
@@ -71,66 +88,90 @@ while running:
     mouse = pygame.mouse.get_pos()
 
 
-    if fc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
-            fc.x = 350
-            fc.y = 230
-            playerCardPlayed = fc.piocher
-            isPlayerTurn = False
-            isBotTurn = True
-               
-    if sc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
-            sc.x = 350
-            sc.y = 230
-            playerCardPlayed = fc.piocher
-            isPlayerTurn = False
-            isBotTurn = True
-
-    if tc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
-            tc.x = 350
-            tc.y = 230
-            playerCardPlayed = fc.piocher
-            isPlayerTurn = False
-            isBotTurn = True
-            
-    if foc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
-            foc.x = 350
-            tc.y = 230
-            playerCardPlayed = fc.piocher
-            isPlayerTurn = False
-            isBotTurn = True
-            
-    if fic.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
-            fic.x = 350
-            fic.y = 230
-            playerCardPlayed = fc.piocher
-            isPlayerTurn = False
-            isBotTurn = True
-    
     #logique du bot pour essayer de gagner
     if fbc.piocher > 7 and isPlayerTurn == False and isBotTurn == True:
         fbc.x = 450
         fbc.y = 230
+        botCardPlayed = fbc.piocher
+        isPlayerTurn = True
+        isBotTurn = False
         #mettre un sleep de 2 secondes et faire partir les cartes
         
     elif fbc.piocher < 7 and sbc.piocher > tbc.piocher and isPlayerTurn == False and isBotTurn == True:
         sbc.x = 450
         sbc.y = 230
+        botCardPlayed = sbc.piocher
+        isPlayerTurn = True
+        isBotTurn = False
         #mettre un sleep de 2 secondes et faire partir les cartes
         
     elif sbc.piocher < tbc.piocher and sbc.piocher > tbc.piocher and isPlayerTurn == False and isBotTurn == True:
         tbc.x = 450
         tbc.y = 230
+        botCardPlayed = tbc.piocher
+        isPlayerTurn = True
+        isBotTurn = False
         #mettre un sleep de 2 secondes et faire partir les cartes
         
     elif sbc.piocher < tbc.piocher and tbc.piocher > fobc.piocher and isPlayerTurn == False and isBotTurn == True:
         fobc.x = 450
         fobc.y = 230
+        botCardPlayed = fobc.piocher
+        isPlayerTurn = True
+        isBotTurn = False
         #mettre un sleep de 2 secondes et faire partir les cartes
         
     elif tbc.piocher < fobc.piocher and fobc.piocher > fibc.piocher and isPlayerTurn == False and isBotTurn == True:
         fibc.x = 450
         fibc.y = 230
-        #mettre un sleep de 2 secondes et faire partir les cartes
+        botCardPlayed = fibc.piocher
+        isPlayerTurn = True
+        isBotTurn = False
+        #mettre un sleep de 2 secondes et faire partir les cartes**
+        
+
+    if fc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            fc.x = 350
+            fc.y = 230
+            playerCardPlayed = fc.piocher
+            isPlayerTurn = False
+               
+    if sc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            sc.x = 350
+            sc.y = 230
+            playerCardPlayed = sc.piocher
+            isPlayerTurn = False
+
+    if tc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            tc.x = 350
+            tc.y = 230
+            playerCardPlayed = tc.piocher
+            isPlayerTurn = False
+            
+    if foc.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            foc.x = 350
+            foc.y = 230
+            playerCardPlayed = foc.piocher
+            isPlayerTurn = False
+            
+    if fic.rect.collidepoint(mouse) and mouse_pressed and isPlayerTurn == True and isBotTurn == False:
+            fic.x = 350
+            fic.y = 230
+            playerCardPlayed = fic.piocher
+            isPlayerTurn = False
+    
+ 
+    if playerCardPlayed > botCardPlayed and isBotTurn == False and isPlayerTurn == False:
+        playerScore = botCardPlayed + playerCardPlayed
+        print(botCardPlayed, "", playerCardPlayed)
+        
+            
+    elif playerCardPlayed < botCardPlayed and isBotTurn == False and isPlayerTurn == False:
+        botScore = botCardPlayed + playerCardPlayed  
+        print(botCardPlayed, "", playerCardPlayed)
+        
+    elif playerCardPlayed == botCardPlayed and isBotTurn == False and isPlayerTurn == False:
+        print(botCardPlayed, "", playerCardPlayed)
         
 
     pygame.display.flip()

@@ -16,7 +16,6 @@ class BotCard(pygame.sprite.Sprite):
 		self.hidedCard = pygame.transform.scale(self.hidedCard, (90, 130))
 
 		self.card = pygame.transform.scale(self.card, (90, 130))
-
 	
 		self.image = self.hidedCard
 
